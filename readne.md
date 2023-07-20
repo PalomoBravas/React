@@ -1,1 +1,0 @@
-blog on next js
