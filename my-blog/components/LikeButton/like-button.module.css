@@ -1,0 +1,18 @@
+.likeButton {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    gap: 5px;
+    height: 100%;
+    cursor: pointer;
+}
+
+.countLike {
+    font-size: 12px;
+    color: var(--c-black-20);
+    padding-top: 3px;
+}
+
+.likeIcon {
+    cursor: pointer;
+}
