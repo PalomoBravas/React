@@ -5,11 +5,12 @@
   --c-border: rgba(245, 245, 245, 1);
   --c-primary: rgba(20, 115, 230, 1);
   --c-white: rgba(255, 255, 255, 1);
+  --font-main: "PT Sans";
 }
 
 body {
   background: darkslategray;
-  font-family: "PT Sans", sans-serif;
+  font-family: var(--font-main, sans-serif)
 }
 
 button {

@@ -3,15 +3,17 @@ import Link from 'next/link'
 import styles from './card.module.css'
 import LikeButton from '../LikeButton'
 import {JSX} from "react";
+import cardImageUrl from '../../public/images/29CCWU6H.jpg'
+import arrowImageUrl from '../../public/icon/arrow.svg'
 
 
 
 function Card(): JSX.Element {
     return (
-        <section className={styles.card}>
+        <article className={styles.card}>
             <Image
                 className={styles.coverImage}
-                src='/29CCWU6H.jpg'
+                src={cardImageUrl}
                 width='500'
                 height='300'
                 alt='cover image'/>
@@ -21,7 +23,7 @@ function Card(): JSX.Element {
                     <span className={styles.bullet}>•</span>
                     <span className={styles.release}>3 month ago</span>
                 </div>
-                <LikeButton countLike = {5} pressed = {false}/>
+                <LikeButton countLike={5} pressed={true}/>
             </section>
 
             <section className={styles.contentCard}>
@@ -32,14 +34,18 @@ function Card(): JSX.Element {
             </section>
 
             <section className={styles.footerCard}>
-                <span className={styles.timeRead}> 3 minutes </span>
+                <span className={styles.timeRead}>3 minutes</span>
                 <button className={styles.readButton}>
                     <span className={styles.readButtonText}>Read </span>
-                    <img src="/icon/arrow.svg" alt="rightArrow" />
+                    <Image
+                        src={arrowImageUrl}
+                        width='20'
+                        height='20'
+                        alt='cover image'/>
                 </button>
             </section>
 
-        </section>
+        </article>
     )
 }
 

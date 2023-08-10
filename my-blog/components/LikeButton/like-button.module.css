@@ -10,9 +10,9 @@
 .countLike {
     font-size: 12px;
     color: var(--c-black-20);
-    padding-top: 3px;
 }
 
 .likeIcon {
     cursor: pointer;
 }
+
