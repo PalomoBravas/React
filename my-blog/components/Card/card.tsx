@@ -1,10 +1,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from './card.module.css'
-import LikeButton from '../LikeButton'
+import LikeButton from 'components/LikeButton/like-button'
 import {JSX} from "react";
-import cardImageUrl from '../../public/images/29CCWU6H.jpg'
-import arrowImageUrl from '../../public/icon/arrow.svg'
+import cardImageUrl from '@/public/images/29CCWU6H.jpg'
+import arrowImageUrl from '@/public/icon/arrow.svg'
 
 
 

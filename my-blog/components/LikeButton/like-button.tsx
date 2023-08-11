@@ -1,8 +1,8 @@
 import styles from './like-button.module.css';
-import likeIconGrayURL from "../../public/icon/likeGray.svg";
-import likeIconRedURL from "../../public/icon/likeRed.svg";
+import likeIconGrayURL from "@/public/icon/likeGray.svg";
+import likeIconRedURL from "@/public/icon/likeRed.svg";
 import {JSX} from "react";
-import LikeButtonProps from "like-button.props";
+import LikeButtonProps from "./like-button.props";
 import Image from 'next/image'
 
 
