@@ -7,6 +7,8 @@ import Image from 'next/image'
 
 
 const LikeButton = ({countLike, pressed}: LikeButtonProps):JSX.Element => {
+
+
     return (
         <button className={styles.likeButton}>
             <span className={styles.countLike}> { countLike } </span>

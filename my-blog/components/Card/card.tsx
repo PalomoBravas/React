@@ -1,14 +1,22 @@
+'use client'
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from './card.module.css'
 import LikeButton from 'components/LikeButton/like-button'
-import {JSX} from "react";
+import {JSX, useState} from "react";
 import cardImageUrl from '@/public/images/29CCWU6H.jpg'
 import arrowImageUrl from '@/public/icon/arrow.svg'
+import Like from "@/components/Like";
 
 
 
 function Card(): JSX.Element {
+    const [likeValue, setLikeValue] = useState(5)
+    const setLike = () => {
+        setLikeValue(likeValue + 1)
+        console.log(likeValue)
+    }
+
     return (
         <article className={styles.card}>
             <Image
@@ -43,6 +51,9 @@ function Card(): JSX.Element {
                         height='20'
                         alt='cover image'/>
                 </button>
+            </section>
+            <section className={styles.tmp}>
+                <Like rating={likeValue} yourLikeIt={true} setLike={setLike}/>
             </section>
 
         </article>

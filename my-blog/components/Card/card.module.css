@@ -105,3 +105,13 @@
     color: var(--c-primary);
 }
 
+.tmp {
+    width: 100%;
+    background: #53537c;
+    min-height: 30px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
