@@ -1,24 +1,16 @@
-.circle {
-    background: gray;
-    min-width: 20px;
-    min-height: 20px;
-    border-radius: 50%;
-    cursor: pointer;
-}
-.circle:hover {
-    background: #b22828;
-}
-
-.active {
-    background: #b22828;
-}
-
-.rating {
-    font-family: var(--font-main);
-    font-size: 16px;
-    color: var(--c-white);
-}
 .like_button {
     display: flex;
-    gap: 10px;
+    align-items: center;
+    padding: 0;
+    gap: 5px;
+    height: 100%;
+    cursor: pointer;
 }
+
+.count_like {
+    font-size: 12px;
+    color: var(--c-black-20);
+}
+
+
+

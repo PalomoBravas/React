@@ -2,20 +2,42 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from './card.module.css'
-import LikeButton from 'components/LikeButton/like-button'
-import {JSX, useState} from "react";
+import {JSX, useEffect, useState} from "react";
 import cardImageUrl from '@/public/images/29CCWU6H.jpg'
 import arrowImageUrl from '@/public/icon/arrow.svg'
 import Like from "@/components/Like";
 
-
-
 function Card(): JSX.Element {
-    const [likeValue, setLikeValue] = useState(5)
+    const postId = 11;
+    const titlePost = 'RGB Mixer';
+    const initLikeValue = 4;
+    const [likeValue, setLikeValue] = useState(initLikeValue)
+    const [yourLikeIt, setYourLikeIt] = useState(false)
+
     const setLike = () => {
-        setLikeValue(likeValue + 1)
-        console.log(likeValue)
+        setYourLikeIt(!yourLikeIt)
+        setLikeValue(!yourLikeIt ? likeValue + 1 : initLikeValue)
     }
+
+    useEffect(() => {PatchRequest(postId, likeValue, yourLikeIt)}, [likeValue])
+
+    const PatchRequest = (postId: number, likesValue: number, yourLikeIt: boolean) => {
+        fetch(`https://jsonplaceholder.typicode.com/posts/:${postId}`, {
+            method: 'PATCH',
+            body: JSON.stringify({
+                title: titlePost,
+                postId: postId,
+                likeValue: likesValue,
+                yourLikeIt: yourLikeIt
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => response.json())
+            .then((json) => console.log(json));
+
+    };
 
     return (
         <article className={styles.card}>
@@ -31,11 +53,11 @@ function Card(): JSX.Element {
                     <span className={styles.bullet}>•</span>
                     <span className={styles.release}>3 month ago</span>
                 </div>
-                <LikeButton countLike={5} pressed={true}/>
+                <Like countLike={likeValue} yourLikeIt={yourLikeIt} setLike={setLike}/>
             </section>
 
             <section className={styles.contentCard}>
-                <h2 className={styles.contentCardTitle}> RGB Mixer </h2>
+                <h2 className={styles.contentCardTitle}> {titlePost} </h2>
                 <p className={styles.contentCardText}><Link href="https://nextjs.org/" className={styles.contentTextLink} >Lorem ipsum dolor sit amet</Link>, consectetur adipisicing elit.
                     Aliquam animi assumenda cumque, et eveniet facere hic incidunt maiores nam quam quasi rerum sed
                     sunt temporibus totam vitae, voluptas... </p>
@@ -51,9 +73,6 @@ function Card(): JSX.Element {
                         height='20'
                         alt='cover image'/>
                 </button>
-            </section>
-            <section className={styles.tmp}>
-                <Like rating={likeValue} yourLikeIt={true} setLike={setLike}/>
             </section>
 
         </article>
