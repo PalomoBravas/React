@@ -6,8 +6,8 @@
     align-items: flex-start;
 
     border-radius: 5px;
-    border: 1px solid var(--c-border);
-    background: var(--c-white);
+    border: 2px solid var(--c-border);
+    background: var(--c-card-backgraund);
 
     font-weight: 400;
     font-size: 14px;
@@ -64,6 +64,7 @@
 .contentCardTitle {
     font-size: 18px;
     font-weight: 700;
+    text-transform: uppercase;
     margin: 0;
     padding: 0;
 

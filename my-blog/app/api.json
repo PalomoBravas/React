@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "title": "Curves",
+    "cover": "./image/images/29CCWU6H.jpg",
+    "category": "tools",
+    "rating": 5,
+    "data": "3 month ago",
+    "text": "Al contrario del pensamiento popular, el texto de Lorem Ipsum no es simplemente texto aleatorio. Tiene sus raices en una pieza cl´sica de la literatura del Latin,",
+    "initialLinkPost": "Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.",
+    "yourLike": false
+  },
+  {
+    "id": 2,
+    "title": "RGB MIXER",
+    "cover": "@/public/images/29CCWU6H.jpg",
+    "category": "practical",
+    "rating": 3,
+    "data": "3 years ago",
+    "text": "Al contrario del pensamiento popular, el texto de Lorem Ipsum no es simplemente texto aleatorio. Tiene sus raices en una pieza cl´sica de la literatura del Latin,",
+    "initialLinkPost": "Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.",
+    "yourLike": true
+  },
+  {
+    "id": 3,
+    "title": "Wheels",
+    "cover": "@/public/images/29CCWU6H.jpg",
+    "category": "concept",
+    "rating": 10,
+    "data": "1 month ago",
+    "text": "Al contrario del pensamiento popular, el texto de Lorem Ipsum no es simplemente texto aleatorio. Tiene sus raices en una pieza cl´sica de la literatura del Latin,",
+    "initialLinkPost": "Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.",
+    "yourLike": true
+  }
+]

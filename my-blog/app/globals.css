@@ -5,15 +5,30 @@
   --c-border: rgba(245, 245, 245, 1);
   --c-primary: rgba(20, 115, 230, 1);
   --c-white: rgba(255, 255, 255, 1);
+  --c-card-backgraund: rgba(250, 250, 250, 1);
   --font-main: "PT Sans";
 }
 
 body {
-  background: darkslategray;
-  font-family: var(--font-main, sans-serif)
+  font-family: var(--font-main, sans-serif);
+  min-width: 1216px;
+  max-width: 1216px;
+  margin: 0 auto;
 }
 
 button {
   background: none;
   border: none;
 }
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 0;
+  margin: 0;
+}
+
+
