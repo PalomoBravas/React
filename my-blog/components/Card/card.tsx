@@ -4,14 +4,15 @@ import Link from 'next/link'
 import styles from './card.module.css'
 import {JSX, useEffect, useState} from "react";
 import arrowImageUrl from '@/public/icon/arrow.svg'
-import coverUrl from '@/public/images/29CCWU6H.jpg'
+
 import Like from "@/components/Like";
 import {CardProps} from "./card.props";
 
-function Card({postId, titlePost, category, textPost, initialLinkPost, rating, data, yourLike}: CardProps): JSX.Element {
+function Card({postId, titlePost, coverURL, category, textPost, initialLinkPost, rating, data, yourLike}: CardProps): JSX.Element {
     const id = postId;
     const title = titlePost;
     const initLikeValue = rating;
+    const cover = coverURL;
     const postCategory = category;
     const dataPost = data;
     const [likeValue, setLikeValue] = useState(initLikeValue)
@@ -46,7 +47,7 @@ function Card({postId, titlePost, category, textPost, initialLinkPost, rating, d
         <article className={styles.card}>
             <Image
                 className={styles.coverImage}
-                src={coverUrl}
+                src={cover}
                 width='500'
                 height='300'
                 alt='cover image'/>
