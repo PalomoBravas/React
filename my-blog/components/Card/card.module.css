@@ -49,6 +49,11 @@
     text-transform: none;
 }
 
+.release::before {
+    content: "•";
+    margin: 0 3px;
+}
+
 .contentCard {
     margin-top: 10px;
     display: flex;

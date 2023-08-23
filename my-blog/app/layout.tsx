@@ -9,7 +9,11 @@ import Image from "next/image";
 import Link from 'next/link'
 
 
-const ptSans = PT_Sans({ subsets: ['latin'], weight: ['400', '700'] })
+const ptSans = PT_Sans({
+    subsets: ['latin'],
+    weight: ['400', '700'],
+    variable: '--font-ptsans',
+})
 
 export const metadata: Metadata = {
   title: 'My color blog',
@@ -19,16 +23,13 @@ export const metadata: Metadata = {
 export default function RootLayout({children,}: { children: React.ReactNode }) {
   return (
     <html lang="ru">
-      <body>
+      <body className={ptSans.variable}>
       <header className={header.container}>
-        <div className={header.logo}>
-            <Image
-                   src={siteLogoUrl}
-                   alt='Логотип сайты скрытый цвет'/>
-
-        </div>
-        <nav className={header.nav}>
-            <Link href={'https://www.blackmagicdesign.com/'} target={'_blank'}>
+          <Image
+              src={siteLogoUrl}
+              alt='Логотип сайты скрытый цвет'/>
+          <nav className={header.nav}>
+            <Link href='https://www.blackmagicdesign.com/' target='_blank'>
                 <Image
                     className={header.nav__davinciLogo}
                     src={davinciLogoUrl}

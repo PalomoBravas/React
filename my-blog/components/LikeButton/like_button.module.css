@@ -14,3 +14,11 @@
 
 
 
+.no_active svg path {
+    fill: gray;
+}
+
+.active svg path {
+    fill: red;
+}
+

@@ -5,68 +5,35 @@ import styles from './card.module.css'
 import {JSX, useEffect, useState} from "react";
 import arrowImageUrl from '@/public/icon/arrow.svg'
 
-import Like from "@/components/Like";
+
+import Like_button from "@/components/LikeButton";
 import {CardProps} from "./card.props";
 
-function Card({postId, titlePost, coverURL, category, textPost, initialLinkPost, rating, data, yourLike}: CardProps): JSX.Element {
-    const id = postId;
-    const title = titlePost;
-    const initLikeValue = rating;
-    const cover = coverURL;
-    const postCategory = category;
-    const dataPost = data;
-    const [likeValue, setLikeValue] = useState(initLikeValue)
-    const [yourLikeIt, setYourLikeIt] = useState(yourLike)
-    console.log(postCategory)
-    const setLike = () => {
-        setYourLikeIt(!yourLikeIt)
-        setLikeValue(!yourLikeIt ? likeValue + 1 : initLikeValue)
-    }
-
-    useEffect(() => {PatchRequest(postId, likeValue, yourLikeIt)}, [likeValue])
-
-    const PatchRequest = (postId: number, likesValue: number, yourLikeIt: boolean) => {
-        fetch(`https://jsonplaceholder.typicode.com/posts/:${postId}`, {
-            method: 'PATCH',
-            body: JSON.stringify({
-                title: title,
-                postId: id,
-                likeValue: likesValue,
-                yourLikeIt: yourLikeIt
-            }),
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            },
-        })
-            .then((response) => response.json())
-            .then((json) => console.log(json));
-
-    };
+function Card({id, title, coverURL, category, text, initialLink, rating, data, yourLike}: CardProps): JSX.Element {
 
     return (
         <article className={styles.card}>
             <Image
                 className={styles.coverImage}
-                src={cover}
+                src={coverURL}
                 width='500'
                 height='300'
                 alt='cover image'/>
-            <section className={styles.headerCard}>
+            <div className={styles.headerCard}>
                 <div className={styles.categoryRelease}>
-                    <span className={styles.category}>{postCategory}</span>
-                    <span className={styles.bullet}>•</span>
-                    <span className={styles.release}>{dataPost}</span>
+                    <span className={styles.category}>{category}</span>
+                    <span className={styles.release}>{data}</span>
                 </div>
-                <Like countLike={likeValue} yourLikeIt={yourLikeIt} setLike={setLike}/>
-            </section>
+                <Like_button id={id} likeValue={rating} yourLikeIt={yourLike}/>
+            </div>
 
             <section className={styles.contentCard}>
-                <h2 className={styles.contentCardTitle}> {titlePost} </h2>
-                <p className={styles.contentCardText}><Link href="https://nextjs.org/" className={styles.contentTextLink} >{initialLinkPost}</Link>{textPost} </p>
+                <h2 className={styles.contentCardTitle}> {title} </h2>
+                <p className={styles.contentCardText}><Link href="https://nextjs.org/" className={styles.contentTextLink} >{initialLink}</Link>{text} </p>
             </section>
 
-            <section className={styles.footerCard}>
-                <span className={styles.timeRead}>{dataPost}</span>
+            <div className={styles.footerCard}>
+                <span className={styles.timeRead}>{data}</span>
                 <button className={styles.readButton}>
                     <span className={styles.readButtonText}>Read</span>
                     <Image
@@ -75,7 +42,7 @@ function Card({postId, titlePost, coverURL, category, textPost, initialLinkPost,
                         height='20'
                         alt='cover image'/>
                 </button>
-            </section>
+            </div>
 
         </article>
     )

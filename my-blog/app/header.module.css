@@ -8,14 +8,11 @@
     padding: 0 25px;
     border-bottom: 1px solid var(--c-black) ;
 }
-.logo {
-
-}
 
 .nav {
     display: flex;
     gap: 20px;
-    justify-content: end;
+    justify-content: flex-end;
     align-items: center;
     width: 60px;
     height: 60px;

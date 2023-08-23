@@ -7,17 +7,15 @@ import Image from "next/image";
 
 
 export default function Home() {
-    console.log(data[1].coverURL)
-
     const posts = data.map((post:object): JSX.Element => {
 
       return <li key={post.id}>
           <Card
-              postId={post.id}
-              titlePost={post.title}
+              id={post.id}
+              title={post.title}
               coverURL={post.coverURL}
-              textPost={post.text}
-              initialLinkPost={post.initialLinkPost}
+              text={post.text}
+              initialLink={post.initialLink}
               category={post.category}
               data={post.data}
               rating={post.rating}
