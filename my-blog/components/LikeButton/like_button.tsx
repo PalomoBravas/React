@@ -5,37 +5,41 @@ import {JSX, useEffect, useState} from "react";
 import LikeIcon from "@/components/Icons/like";
 import PatchRequestService from "@/services/PatchRequestService";
 
-
-
-
-export default function Like_button ({yourLikeIt = false, likeValue, id}: Like_buttonProps): JSX.Element {
-
-    const [likeIt, setLikeIt] = useState(yourLikeIt)
-    const [likeCount, setLikeValue] = useState(likeValue)
+export default function Like_button ({like = false, initLikeValue, id}: Like_buttonProps): JSX.Element {
+    const [mount, setMount] = useState(false)
+    const [youLike, setYouLike] = useState(like)
+    const [likeValue, setLikeValue] = useState(initLikeValue)
 
     useEffect(() => {
-        likeIt ? setLikeValue(likeCount + 1) : setLikeValue(likeValue)
-        PatchRequestService(id, likeCount, likeIt)
-    }, [likeIt])
+        if (mount) {
+           PatchRequestService(id, likeValue, !youLike)
+        }
+    }, [likeValue])
 
     const enter = () => {
-
+        setYouLike(!youLike)
     }
     const leave = () => {
-
+        setYouLike(!youLike)
     }
 
-    const likeConstructor = (buttonState: boolean, countLike: number): JSX.Element => {
+    const click = () => {
+        setMount(true)
+        setYouLike(!youLike)
+        youLike ? setLikeValue(likeValue + 1) : setLikeValue(likeValue - 1)
+    }
+
+    const likeConstructor = (buttonState: unknown, countLike: number): JSX.Element => {
         return (
             <button className={ buttonState ? `${styles.like_button} ${styles.active}` : `${styles.like_button} ${styles.no_active}` }
                     onMouseEnter={() => enter()}
                     onMouseLeave={() => leave()}
-                    onClick={() => setLikeIt(!likeIt)}>
+                    onClick={() => click()}>
                 <span className={styles.count_like}>{countLike}</span>
                 <LikeIcon/>
             </button>
         )
     }
 
-    return likeConstructor(likeIt, likeValue)
+    return likeConstructor(youLike, likeValue)
 }

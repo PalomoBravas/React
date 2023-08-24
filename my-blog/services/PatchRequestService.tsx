@@ -1,5 +1,4 @@
-import {PatchRequestServiceProps} from "@/services/PatchRequestService.props";
-const PatchRequestService = (id: number, likeValue: unknown, yourLikeIt: boolean): void => {
+const PatchRequestService = (id: number, likeValue: number, yourLikeIt: boolean): void => {
 
     fetch(`https://jsonplaceholder.typicode.com/posts/:${id}`, {
         method: 'PATCH',

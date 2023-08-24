@@ -1,12 +1,11 @@
-'use client'
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from './card.module.css'
-import {JSX, useEffect, useState} from "react";
+import {JSX} from "react";
 import arrowImageUrl from '@/public/icon/arrow.svg'
 
 
-import Like_button from "@/components/LikeButton";
+import LikeButton from "@/components/LikeButton";
 import {CardProps} from "./card.props";
 
 function Card({id, title, coverURL, category, text, initialLink, rating, data, yourLike}: CardProps): JSX.Element {
@@ -24,7 +23,7 @@ function Card({id, title, coverURL, category, text, initialLink, rating, data, y
                     <span className={styles.category}>{category}</span>
                     <span className={styles.release}>{data}</span>
                 </div>
-                <Like_button id={id} likeValue={rating} yourLikeIt={yourLike}/>
+                <LikeButton id={id} initLikeValue={rating} like={yourLike}/>
             </div>
 
             <section className={styles.contentCard}>
