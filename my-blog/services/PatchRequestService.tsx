@@ -1,18 +1,20 @@
-const PatchRequestService = (id: number, likeValue: number, yourLikeIt: boolean): void => {
+import {PatchRequestServiceProps} from "@/services/PatchRequestService.props";
 
-    fetch(`https://jsonplaceholder.typicode.com/posts/:${id}`, {
+const patchRequestService: PatchRequestServiceProps = (id, likeValue, yourLikeIt) => {
+    return fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
         method: 'PATCH',
         body: JSON.stringify({
             id,
             likeValue,
             yourLikeIt,
-            }),
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            },
-        })
-            .then((response) => response.json())
-            .then((json) => console.log(json));
-}
+        }),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+    })
+        .then((response) => response.json())
+        .then((json) => console.log(json));
+};
 
-export default PatchRequestService
+export default patchRequestService;
+

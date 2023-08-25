@@ -1,7 +1,4 @@
-import {JSX} from "React";
-
-const LikeIcon = (): JSX.Element => (
-
+const LikeIcon = () => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width={13}
@@ -13,5 +10,4 @@ const LikeIcon = (): JSX.Element => (
             clipRule="evenodd"/>
     </svg>
 )
-
 export default LikeIcon
