@@ -1,0 +1,19 @@
+.header, .main, .footer {
+    width: 1216px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+    margin-bottom: 50px;
+    height: 100px;
+    padding: 0 25px;
+    border-bottom: 1px solid var(--c-black);
+}
+
+.main {
+    padding: 0 25px;
+}

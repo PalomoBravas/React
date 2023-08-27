@@ -1,5 +1,6 @@
 import Card from "../components/Card";
 import main from './main.module.css'
+import layout from './layout.module.css'
 import {JSX} from "React";
 import data from './api.json'
 import {CardProps} from "@/components/Card/card.props";
@@ -13,7 +14,7 @@ export default function Home() {
      })
 
     return (
-        <main className={main.container}>
+        <main className={layout.main}>
 
             <ul className={main.content}>
                 {posts}
