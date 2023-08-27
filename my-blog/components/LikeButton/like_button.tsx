@@ -6,16 +6,14 @@ import patchRequestService from "@/services/PatchRequestService";
 import classNames from "classnames";
 
 export default function Like_button ({like = false, initLikeValue, id}: Like_buttonProps): JSX.Element {
-    const [mount, setMount] = useState(false)
     const [isLiked, setIsLiked] = useState(like)
     const [likeValue, setLikeValue] = useState(initLikeValue)
 
 
-    const click = () => {
-        setMount(true)
+    async function click ()  {
         setIsLiked(!isLiked)
         isLiked ? setLikeValue(likeValue - 1 ) : setLikeValue(likeValue + 1)
-        patchRequestService(id, isLiked ? likeValue - 1 : likeValue + 1,  !isLiked)
+        await patchRequestService(id, isLiked ? likeValue - 1 : likeValue + 1,  !isLiked)
     }
 
     return (
