@@ -1,49 +1,47 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from './card.module.css'
-import LikeButton from 'components/LikeButton/like-button'
 import {JSX} from "react";
-import cardImageUrl from '@/public/images/29CCWU6H.jpg'
 import arrowImageUrl from '@/public/icon/arrow.svg'
 
 
+import LikeButton from "@/components/LikeButton";
+import {CardProps} from "./card.props";
 
-function Card(): JSX.Element {
+function Card({id, title, coverURL, category, text, initialLink, rating, data, yourLike}: CardProps): JSX.Element {
+
     return (
         <article className={styles.card}>
             <Image
                 className={styles.coverImage}
-                src={cardImageUrl}
+                src={coverURL}
                 width='500'
                 height='300'
                 alt='cover image'/>
-            <section className={styles.headerCard}>
+            <div className={styles.headerCard}>
                 <div className={styles.categoryRelease}>
-                    <span className={styles.category}>Tools</span>
-                    <span className={styles.bullet}>•</span>
-                    <span className={styles.release}>3 month ago</span>
+                    <span className={styles.category}>{category}</span>
+                    <span className={styles.release}>{data}</span>
                 </div>
-                <LikeButton countLike={5} pressed={true}/>
-            </section>
+                <LikeButton id={id} initLikeValue={rating} like={yourLike}/>
+            </div>
 
             <section className={styles.contentCard}>
-                <h2 className={styles.contentCardTitle}> RGB Mixer </h2>
-                <p className={styles.contentCardText}><Link href="https://nextjs.org/" className={styles.contentTextLink} >Lorem ipsum dolor sit amet</Link>, consectetur adipisicing elit.
-                    Aliquam animi assumenda cumque, et eveniet facere hic incidunt maiores nam quam quasi rerum sed
-                    sunt temporibus totam vitae, voluptas... </p>
+                <h2 className={styles.contentCardTitle}> {title} </h2>
+                <p className={styles.contentCardText}><Link href="https://nextjs.org/" className={styles.contentTextLink} >{initialLink}</Link>{text} </p>
             </section>
 
-            <section className={styles.footerCard}>
-                <span className={styles.timeRead}>3 minutes</span>
+            <div className={styles.footerCard}>
+                <span className={styles.timeRead}>{data}</span>
                 <button className={styles.readButton}>
-                    <span className={styles.readButtonText}>Read </span>
+                    <span className={styles.readButtonText}>Read</span>
                     <Image
                         src={arrowImageUrl}
                         width='20'
                         height='20'
                         alt='cover image'/>
                 </button>
-            </section>
+            </div>
 
         </article>
     )
