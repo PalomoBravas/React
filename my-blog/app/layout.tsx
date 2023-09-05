@@ -1,14 +1,10 @@
 import './globals.css'
 import './preflight.css'
-import layout from './layout.module.css'
 import type { Metadata } from 'next'
 import { PT_Sans } from 'next/font/google'
 import React from "react";
-import header from './header.module.css'
-import siteLogoUrl from 'public/logo/HIDDEN COLOR.svg'
-import davinciLogoUrl from 'public/logo/DaVinci-Resolve-Logo-1.webp'
-import Image from "next/image";
-import Link from 'next/link'
+import Header from "@/components/Header";
+
 
 
 const ptSans = PT_Sans({
@@ -27,23 +23,8 @@ export default function RootLayout({children,}: { children: React.ReactNode }) {
     <html lang="en">
     <body className={ptSans.variable}>
 
-    <header className={layout.header}>
-        <Image
-            src={siteLogoUrl}
-            alt='Логотип сайты скрытый цвет'/>
-        <nav className={header.nav}>
-            <Link href='https://www.blackmagicdesign.com/' target='_blank'>
-                <Image
-                    className={header.nav__davinciLogo}
-                    src={davinciLogoUrl}
-                    width={40}
-                    height={40}
-                    alt='Логотип сайты скрытый цвет'/>
-            </Link>
-
-        </nav>
-    </header>
-    {children}
+        <Header/>
+        {children}
 
     </body>
     </html>
