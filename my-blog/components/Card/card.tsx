@@ -34,8 +34,7 @@ function Card({id, title, coverURL, category, text, initialLink, rating, data, y
             <div className={styles.footerCard}>
                 <span className={styles.timeRead}>{data}</span>
                 <Link
-                    href={'https://www.kommersant.ru/'}
-                    target="_blank"
+                    href={'/post/2'}
                     className={styles.link}>
                     <button className={styles.readButton}>
                         <span className={styles.readButtonText}>Read</span>

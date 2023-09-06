@@ -17,8 +17,7 @@ export default async function PostList ({count}:number):Promise<JSX.Element> {
             <h3 className={styles.title}>{post.title}</h3>
             <p className={styles.body}>{post.body}</p>
             <Link
-                href={'https://www.kommersant.ru/'}
-                target="_blank"
+                href={`/post/${post.id}`}
                 className={styles.link}>
                 <button className={styles.readButton}>
                     <span className={styles.readButtonText}>Read</span>
