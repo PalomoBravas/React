@@ -1,7 +1,7 @@
 import {API} from "@/api";
 
-export default async function getData (countPosts = 100) {
-    let url = countPosts!==0 && countPosts<100 ? `${API.post.getLimit}${countPosts}` : `${API.post.getAll}`
+export default async function getPosts (countPosts = 100) {
+    let url = countPosts!==0 && countPosts<100 ? `${API.post.get}?_limit=${countPosts}` : `${API.post.get}`
     console.log('getData ' + countPosts + url )
     const res = await fetch(url)
 

@@ -1,6 +1,6 @@
 import style from './article.module.css'
 import {JSX} from "react";
-import getPost from "@/services/GetPost";
+import getPost from "@/services/getPostById";
 
 
 

@@ -6,9 +6,11 @@ import {Metadata} from "next";
 
 
 
+
+
 export const metadata: Metadata = {
-    title: 'about',
-    description: 'about',
+    title: 'Posts',
+    description: 'Page of Posts',
 }
 export default function PostPage({ params }: { params: { id: string } }) {
     return (

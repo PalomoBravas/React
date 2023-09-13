@@ -13,9 +13,12 @@ export default function Header () {
     return (
         <AppContextProvider url='https://www.blackmagicdesign.com/'>
             <header className={layout.header}>
-                <Image
-                    src={siteLogoUrl}
-                    alt='Логотип сайты скрытый цвет'/>
+                <Link href='/'>
+                    <Image
+                        src={siteLogoUrl}
+                        alt='Logo of site'/>
+                </Link>
+
                 <nav className={header.nav}>
                     <LogoLink/>
                 </nav>
@@ -36,7 +39,7 @@ const LogoLink = () => {
                 src={davinciLogoUrl}
                 width={40}
                 height={40}
-                alt='Логотип сайты скрытый цвет'/>
+                alt='Logo of Davinci site'/>
         </Link>
     )
 }

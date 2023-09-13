@@ -1,5 +1,5 @@
 
-import getData from "@/services/GetData";
+import getData from "@/services/getPosts";
 import {JSX} from "react";
 import {PostProps} from './postList.props';
 import styles from './postList.module.css'
@@ -19,14 +19,14 @@ export default async function PostList ({count}:number):Promise<JSX.Element> {
             <Link
                 href={`/post/${post.id}`}
                 className={styles.link}>
-                <button className={styles.readButton}>
+                <div className={styles.readButton}>
                     <span className={styles.readButtonText}>Read</span>
                     <Image
                         src={arrowImageUrl}
                         width='20'
                         height='20'
                         alt='cover image'/>
-                </button>
+                </div>
             </Link>
         </li>
     })
