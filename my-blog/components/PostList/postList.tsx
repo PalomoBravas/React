@@ -1,5 +1,5 @@
 
-import getData from "@/services/getPosts";
+import getPosts from "@/services/getPosts";
 import {JSX} from "react";
 import {PostProps} from './postList.props';
 import styles from './postList.module.css'
@@ -9,7 +9,7 @@ import Link from "next/link";
 
 
 export default async function PostList ({count}:number):Promise<JSX.Element> {
-    const postsArr = await getData(count)
+    const postsArr = await getPosts(count)
 
 
     const posts = postsArr.map((post:PostProps): JSX.Element => {

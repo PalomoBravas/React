@@ -20,7 +20,7 @@ export default function Header () {
                 </Link>
 
                 <nav className={header.nav}>
-                    <LogoLink/>
+                    <LinkToDavinci/>
                 </nav>
             </header>
 
@@ -29,7 +29,7 @@ export default function Header () {
     )
 }
 
-const LogoLink = () => {
+const LinkToDavinci = () => {
     const {url} = useContext(AppContext);
 
     return (

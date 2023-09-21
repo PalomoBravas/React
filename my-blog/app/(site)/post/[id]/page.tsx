@@ -2,12 +2,6 @@
 import layout from './layout.module.css'
 import Article from "@/components/Article";
 import {Metadata} from "next";
-
-
-
-
-
-
 export const metadata: Metadata = {
     title: 'Posts',
     description: 'Page of Posts',

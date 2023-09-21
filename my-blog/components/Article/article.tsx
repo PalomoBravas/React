@@ -13,9 +13,7 @@ async function Article({id}): Promise<JSX.Element> {
 
     return (
         <article className={style.article}>
-            <span></span>
             <h2 className={style.postTitle}>{post.title}</h2>
-
             <div className={style.body}>{post.body}</div>
         </article>
     )

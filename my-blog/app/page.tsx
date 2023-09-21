@@ -14,8 +14,6 @@ export default function Home() {
       </li>
      })
 
-    console.log()
-
     return (
         <main className={layout.main}>
 
