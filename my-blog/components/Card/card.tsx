@@ -33,14 +33,19 @@ function Card({id, title, coverURL, category, text, initialLink, rating, data, y
 
             <div className={styles.footerCard}>
                 <span className={styles.timeRead}>{data}</span>
-                <button className={styles.readButton}>
-                    <span className={styles.readButtonText}>Read</span>
-                    <Image
-                        src={arrowImageUrl}
-                        width='20'
-                        height='20'
-                        alt='cover image'/>
-                </button>
+                <Link
+                    href={`/post/${id}`}
+                    className={styles.link}>
+                    <div className={styles.readButton}>
+                        <span className={styles.readButtonText}>Read</span>
+                        <Image
+                            src={arrowImageUrl}
+                            width='20'
+                            height='20'
+                            alt='cover image'/>
+                    </div>
+                </Link>
+
             </div>
 
         </article>
