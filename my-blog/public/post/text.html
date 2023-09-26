@@ -1,0 +1,72 @@
+<h3>Simplified introduction to ACES workflow:</h3>
+<p>Here is an overview of how Academy Color Encoding System – ACES works in DaVinci Resolve (as I see it for now).
+    Other platforms like Nucoda, Baselight, and Scratch all handle ACES in their own way, but the main approach is
+    the same. This is a simplified approach and I think it will help you understand it better:</p>
+<p>ACES generally is a linear color space with almost infinite colors and around 30 stops of latitude. Most modern
+    cameras like Arri, Red and BlackMagic cameras utilize a wide gamut sensor, (i.e. producing more color
+    information compared to lower 10 and 8-bit cameras), and ACES makes use of the wide gamut color data. Think of
+    it as slide scanned at 2400 dpi versus regular images that are scanned at 100 dpi.<br>The actual math is more
+    precise, but you get the idea.</p>
+<h4>There is 3 main parts to ACES while grading:</h4>
+<ol>
+    <li>First is the input transform (IDT). The input transform converts camera color data to the ACES color space
+        and because every camera manufacturer have crafted their own color secret sauce, ACES allows you to bring
+        various camera images into a uniform working space.
+    </li>
+    <li>Secondly, ACEScc is the commonly used color space for grading, which is like a conversion of linear space to
+        log (ACES2065 linear &gt; ACEScc log), making it easier for a colorist to grade using log
+        tools.
+    </li>
+    <li>Third is the Output Display Transform (ODT) which makes your ACES or ACEScc display properly on all devices.
+        It is important to select an ODT based on your device capability, for example, REC709, P3, and 2020.
+        Ideally, they all should look the same if calibrated to their native standard. When new devices will come to
+        market with better color gamut they can be used on the same principle and not to worry about redoing all the
+        work you have done in grading already.
+    </li>
+</ol>
+<p>The first step is to set your Resolve Color Management to ACEScc, then set your output display transform (ODT) to
+    rec 709. I usually leave the input transform blank for my project settings and set the transform for individual
+    clips on the color page or in the media pool clip parameters.Why?
+    Often, a project contains original media from multiple different cameras like Arri, Red, and BlackMagic for
+    example, and if you’ve been using Resolve 15 you may have noticed that software automatically transforms raw
+    camera files with the correct IDT. I think big workflow pipelines would benefit from this a lot as every minute
+    you shave off the process is gain that can be used elsewhere. However, if there are files in a project like
+    ProRes or DNxHD that aren’t RAW from a camera, you can manually select the correct transform.</p>
+<p>I grade with log tools as ACEScc behaves like log. Adjust offset for WB, adjust contrast – pivot and master
+    offset (exposure in a way), Hue and also saturation or color boost if needed. Most of the time i even do not use
+    rings or balls of my Elements panel to adjust and if i do need then midtone ball is the one that mostly use.
+    Less and less i need to adjust highlight or shadow separately. So in a way i start with few nodes for
+    normalizing master offset (exposure), contrast and WB. If it feels off i use hue to line up shots to mach more
+    evenly. Later on i start to build look on top of it like usually either with curves or regular log
+    tools.</p>
+<p>I have heard keying seems to be issue for some users with Resolve in ACES. So what can you do to get around that?
+    I find a good option is to do it after “normalizing” the image and work with HSL key. Also consider using the
+    blur option in the key tool as needed.</p>
+<p>I find that it’s really helpful to use scopes with the HML tool. It is the most valuable thing you can have in
+    your studio that helps you get a clean starting point fast with tight, shot to shot consistency.</p>
+<p>Recently I read a comment on a Facebook Group posted by Walter Volpatto about efficient workflows that he uses,
+    and it turns out my approach is very similar.</p>
+<ul>
+    <li>Start with the input transform (which in this example is done already before nodes either automatically in
+        Resolve 15 or by manual selection)
+    </li>
+    <li>Normalize your shot</li>
+    <li>Create the look on key shot as shared node or post group to use over scene</li>
+    <li>Add grain, or FX like film damage also as shared node or even on timeline level</li>
+
+</ul>
+
+<p>I wanted to point out that for VFX, it’s always a good idea to use linear, wide gamut, 30 stop material with no
+    gamma at its core. This simplifies the entire process and your team will be happy they don’t have to manage a
+    gazillion luts just to display the images correctly. In this way, ACES is helpful for post houses of every
+    size—big, medium and small.</p>
+<h3>To conclude my, here’s why Academy Color Encoding System – ACES is my go to color system</h3>
+<ul>
+    <li>Fast, clean results</li>
+    <li>Easy to manage in a VFX pipeline</li>
+    <li>Easy to monitor</li>
+    <li>Make the most out of your grading with wide-gamut media</li>
+    <li>About 30 stops of latitude and no gamma issues</li>
+</ul>
+<h4>I hope that helps you out and shows how you can approach your workflow using Academy Color Encoding System
+    ACES.</h4>
